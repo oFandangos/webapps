@@ -12,9 +12,7 @@ class ModerationController extends Controller
 {
     public function index(){
         Gate::authorize('admins', auth()->user());
-        $webapps = Moderation::join('webapps','webapps.id','moderations.webapp_id')
-        ->where('webapps.status','Solicitado')
-        ->get();
+        $webapps = Webapp::where('webapps.status','Solicitado')->get();
         return view('moderation', ['webapps' => $webapps]);
     }
 

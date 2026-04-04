@@ -1,37 +1,13 @@
 <?php
 
-$admin = [
+$submenu = [
     [
-        'text' => '<i class="fas fa-atom"></i>  SubItem 1',
-        'url' => 'subitem1',
+        'text' => 'Meus sites',
+        'url' => '/meus-sites'
     ],
     [
-        'text' => 'SubItem 2',
-        'url' => '/subitem2',
-        'can' => 'admin',
-    ],
-    [
-        'type' => 'divider',
-    ],
-    [
-        'type' => 'header',
-        'text' => 'Cabeçalho',
-    ],
-    [
-        'text' => 'SubItem 3',
-        'url' => 'subitem3',
-    ],
-];
-
-$submenu2 = [
-    [
-        'text' => 'SubItem 1',
-        'url' => 'subitem1',
-    ],
-    [
-        'text' => 'SubItem 2',
-        'url' => 'subitem2',
-        'can' => 'admin',
+        'text' => 'Minhas Solicitações',
+        'url' => '/minhas-solicitacoes'
     ],
 ];
 
@@ -45,13 +21,13 @@ $menu = [
         'key' => 'menu_dinamico',
     ],
     [
-        'text' => 'Drop Down',
-        'submenu' => $submenu2,
-        'can' => '',
+        'text' => 'Meus sites',
+        'submenu' => $submenu,
+        'can' => 'user',
     ],
     [
-        'text' => 'Está logado',
-        'url' => config('app.url') . '/logado', // com caminho absoluto
+        'text' => 'Solicitar site',
+        'url' => config('app.url') . '/create', // com caminho absoluto
         'can' => 'user',
     ],
     [
@@ -60,8 +36,8 @@ $menu = [
         'can' => 'gerente',
     ],
     [
-        'text' => 'Menu admin',
-        'submenu' => $admin,
+        'text' => 'Moderação',
+        'url' => 'moderation',
         'can' => 'admin',
     ],
 ];

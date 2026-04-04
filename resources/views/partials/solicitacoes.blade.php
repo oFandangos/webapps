@@ -7,7 +7,10 @@
                  <b>Domínio: </b><p class="card-text">{{$webapp->dominio}}</p>
                 <b>Justificativa:</b><p class="card-text">{{$webapp->justificativa}}</p>
                 <b>Tipo de solicitação: </b><p>{{ $webapp->tipo == 'outro_app' ? 'Outro App' : 'Drupal' }}</p>
-                <b>URL: </b><p><a href="https://github.com/{{ $webapp->url_github }}" target="_blank">https://github.com/{{ $webapp->url_github }} </a></p>
+                @if($webapp->url_github)
+                    <b>Repositório Github: </b>
+                    <p><a href="https://github.com/{{ $webapp->url_github }}" target="_blank">https://github.com/{{ $webapp->url_github }} </a><b>Tag: </b>{{ $webapp->version }}</p>
+                @endif
                 <b>Status: </b><p>{{ $webapp->status }}</p>
                 <b>Solicitante: </b><p>{{ $webapp->user->name }}</p>
                 <div class="row">
