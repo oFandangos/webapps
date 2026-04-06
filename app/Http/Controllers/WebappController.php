@@ -23,12 +23,16 @@ class WebappController extends Controller
 
         if($validated['tipo'] == 'outro_app'){
             $repo_version = new ApiService;
-            if($repo_version->api($request->url_github)['ok'] == false){
+            $resultado = $repo_version->api($validated['url_github']);
+            $status = $resultado['ok'];
+            $content = $resultado['content'];
+
+            if($status == false){
                 return redirect('/create')
                 ->withInput($validated)
-                ->withErrors(['repo' => 'O repositório não foi encontrado ou está indisponível. Verifique o campo novamente.']);
+                ->withErrors(['repo' => $content]);
             }
-            $validated['version'] = $repo_version->api($request->url_github)['content'];
+            $validated['version'] = $content;
         }
 
         $webapp = Webapp::create($validated);

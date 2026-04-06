@@ -24,8 +24,7 @@ class WebappRequest extends FormRequest
     {
         return [
             'dominio' => 'required',
-            //'url_github' => ['nullable','url'],
-            'url_github' => ['nullable'],
+            'url_github' => ['nullable','url','starts_with:https://github.com'],
             'justificativa' => 'required',
             'tipo' => 'required',
             'database_username' => 'nullable',
@@ -43,7 +42,8 @@ class WebappRequest extends FormRequest
             'dominio.required' => 'O domínio é obrigatório',
             'justificativa.required' => 'A justificativa é obrigatória',
             'tipo.required' => 'O tipo é obrigatório',
-            //'url_github.url' => 'url'
+            'url_github.url' => 'A Url precisa começar com https://',
+            'url_github.starts_with' => 'A URL inserida não pertence ao Github'
         ];
     }
 

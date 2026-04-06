@@ -15,7 +15,7 @@
 <div class="row" id="url_github" style="display:none;">
     <div class="col">
         <label><b>Repositório github</b></label>
-        <input type="text" class="form-control" name="url_github" value="{{ old('url_github', $webapp->url_github) }}" placeholder="Ex.: usuario/nome-repositorio">
+        <input type="text" class="form-control" name="url_github" value="{{ old('url_github', $webapp->url_github) }}" placeholder="https://github.com/usuario/nome-repositorio">
     </div>
 </div>
 
