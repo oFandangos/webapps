@@ -38,11 +38,6 @@ class SolicitacaoController extends Controller
         }
 
         $webapp->update($validated);
-        
-        $moderation = new Moderation();
-        $moderation->webapp_id = $webapp->id;
-        $moderation->user_id = $webapp->user_id;
-        $moderation->save();
 
        session()->flash('alert-success','Seu pedido foi alterado. Aguardando revisão de um administrador');
        return redirect('/minhas-solicitacoes');
